@@ -1,0 +1,18 @@
+[Unit]
+Description=TP1 Tor Routing Service
+After=network-online.target tor.service
+Wants=network-online.target
+Requires=tor.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/tp1-tor-routing
+ExecStart=/opt/tp1-tor-routing/.venv/bin/python /opt/tp1-tor-routing/tor_routing_service.py
+Restart=on-failure
+RestartSec=5
+
+# Le service modifie iptables, il doit donc rester root dans ce TP.
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+# TP 1 - Tor Routing Service
+# Proxy transparent pour rediriger le TCP via iptables.
+TransPort 9040
+
+# API de controle utilisee par le script Python avec la librairie stem.
+ControlPort 9051
+CookieAuthentication 1
+
+# Fichier PID utile pour les services systemd et le diagnostic.
+PidFile /run/tor/tor.pid
+
+# Journalisation Tor standard.
+Log notice file /var/log/tor/notices.log
